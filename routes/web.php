@@ -207,11 +207,18 @@ Route::group(['prefix' => 'install'], function () {
  * company
  */
 
-    Route::get('/', 'CompaniesController@index')->name('home');
+    // Route::get('/', 'CompaniesController@index')->name('home');
     Route::get('/create', 'CompaniesController@create');
     Route::post('/company/store', 'CompaniesController@store');
+    Route::get('/company/list', 'CompaniesController@listcompanies');
+
+    // waybill
+    Route::get('/create', 'CompaniesController@create');
+    Route::post('/waybill/add-waybill', 'WaybillsController@store');
+    Route::get('/waybill/list', 'WaybillsController@listwaybills');
 
     Route::resource('company', 'CompaniesController');
+    Route::resource('waybill', 'WaybillsController');
 
 //  Route::group(['prefix' => 'company'], function() {
 //     Route::get('/', 'CompaniesController@index')->name('company.home');

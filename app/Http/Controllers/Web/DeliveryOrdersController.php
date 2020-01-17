@@ -4,10 +4,8 @@ namespace Vanguard\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use Vanguard\Http\Controllers\Controller;
-use Vanguard\Company;
-use DB;
 
-class CompaniesController extends Controller
+class DeliveryOrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-    
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class CompaniesController extends Controller
      */
     public function create()
     {
-        return view('company.create');
+        //
     }
 
     /**
@@ -37,26 +35,7 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'company_name' => 'required',
-            'address' => 'required',
-            'phone_no' => 'required',
-            'drivers_name' => 'required',
-            'truck_no' => 'required'
-         ]);
-         // return 123;
-         
-         //create company
-         $company = new Company;
-         $company->name = $request->input('company_name');
-         $company->address = $request->input('address');
-         $company->telephone_no = $request->input('phone_no');
-         $company->drivers_name = $request->input('drivers_name');
-         $company->truck_no = $request->input('truck_no');
-         $company->save();
-          
-         session()->flash('message', 'You have successfully added a Company');
-         return back();
+        //
     }
 
     /**
@@ -102,12 +81,5 @@ class CompaniesController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function listcompanies()
-    {
-        $company = Company::all();
-
-        return view('company.list')->with('company', $company);
     }
 }
